@@ -1,0 +1,32 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - APP_ENV=local
+      - APP_KEY=base64:imRefX3jXiXt7Id5QFjA0MJLcHUQyHKk38hkWKkBOC8=
+      - DB_HOST=mysql
+      - DB_DATABASE=terus_jaya_compro
+      - DB_USERNAME=irfanm
+      - DB_PASSWORD=irfan2711
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:8.0
+    container_name: terus_jaya_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: irfan2711
+      MYSQL_DATABASE: terus_jaya_compro
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
+    driver: local
