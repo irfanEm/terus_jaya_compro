@@ -3,5 +3,5 @@
 @section('title') {{ $title }} @endsection
 
 @section('content')
-    <p>Selamat datang di web PT Terus Jaya Cilacap.</p>
+    <p>Berikut kontak kami, PT Terus Jaya Cilacap yang bisa anda hubungi.</p>
 @endsection
